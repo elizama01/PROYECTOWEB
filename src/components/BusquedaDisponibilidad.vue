@@ -1,7 +1,7 @@
 <template>
-  <div>
+<div>
     <router-view name="VistaCalendarioDisponibilidad"></router-view>
-  </div>
+</div>
 </template>
 
 <script>
