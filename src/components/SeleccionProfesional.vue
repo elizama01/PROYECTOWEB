@@ -9,53 +9,40 @@
       row
       wrap
     >
-      <v-flex slot="item" slot-scope="props" xs12 sm5 md8 lg10>
+      <v-flex slot="item" slot-scope="props" xs12 sm5 md8 lg11 text-xs-center>
         <v-card>
-          <v-card-title class="subheading font-weight-bold">{{ props.item.name }}</v-card-title>
+          <v-avatar :tile="tile" :size="400" color="grey lighten-4">
+            <img :src="props.item.imagen" alt="avatar">
+          </v-avatar>
+          <v-card-title class="subheading font-weight-bold">
+            {{ props.item.nombre }}
+            <v-flex xs2 sm8 text-xs-center>
+              <v-btn color="primary" dark>Escoger
+                <v-icon dark right>check_circle</v-icon>
+              </v-btn>
+            </v-flex>
+          </v-card-title>
 
           <v-divider></v-divider>
-
           <v-list dense>
             <v-list-tile>
-              <v-list-tile-content>Calories:</v-list-tile-content>
-              <v-list-tile-content class="align-end">{{ props.item.calories }}</v-list-tile-content>
+              <v-list-tile-content>Edad:</v-list-tile-content>
+              <v-list-tile-content class="align-end">{{ props.item.edad}}</v-list-tile-content>
             </v-list-tile>
 
             <v-divider></v-divider>
             <v-list-tile>
-              <v-list-tile-content>Fat:</v-list-tile-content>
-              <v-list-tile-content class="align-end">{{ props.item.fat }}</v-list-tile-content>
+              <v-list-tile-content>Area de epecializacion:</v-list-tile-content>
+              <v-list-tile-content class="align-end">{{ props.item.area }}</v-list-tile-content>
             </v-list-tile>
 
             <v-divider></v-divider>
             <v-list-tile>
-              <v-list-tile-content>Carbs:</v-list-tile-content>
-              <v-list-tile-content class="align-end">{{ props.item.carbs }}</v-list-tile-content>
+              <v-list-tile-content>Valor Sesion:</v-list-tile-content>
+              <v-list-tile-content class="align-end">{{ props.item.valor }}</v-list-tile-content>
             </v-list-tile>
 
             <v-divider></v-divider>
-            <v-list-tile>
-              <v-list-tile-content>Protein:</v-list-tile-content>
-              <v-list-tile-content class="align-end">{{ props.item.protein }}</v-list-tile-content>
-            </v-list-tile>
-
-            <v-divider></v-divider>
-            <v-list-tile>
-              <v-list-tile-content>Sodium:</v-list-tile-content>
-              <v-list-tile-content class="align-end">{{ props.item.sodium }}</v-list-tile-content>
-            </v-list-tile>
-
-            <v-divider></v-divider>
-            <v-list-tile>
-              <v-list-tile-content>Calcium:</v-list-tile-content>
-              <v-list-tile-content class="align-end">{{ props.item.calcium }}</v-list-tile-content>
-            </v-list-tile>
-
-            <v-divider></v-divider>
-            <v-list-tile>
-              <v-list-tile-content>Iron:</v-list-tile-content>
-              <v-list-tile-content class="align-end">{{ props.item.iron }}</v-list-tile-content>
-            </v-list-tile>
           </v-list>
         </v-card>
       </v-flex>
@@ -73,47 +60,21 @@ export default {
     items: [
       {
         value: false,
-        name: "Frozen Yogurt",
-        calories: 159,
-        fat: 6.0,
-        carbs: 24,
-        protein: 4.0,
-        sodium: 87,
-        calcium: "14%",
-        iron: "1%"
+        nombre: "Maximiliano Toloza",
+        edad: "40 Años",
+        area: "Adulto,niños",
+        valor: "$25.000",
+        imagen:
+          "https://www.altonivel.com.mx/wp-content/uploads/2018/02/presentacion-de-negocios-profesional.jpg"
       },
       {
         value: false,
-        name: "Ice cream sandwich",
-        calories: 237,
-        fat: 9.0,
-        carbs: 37,
-        protein: 4.3,
-        sodium: 129,
-        calcium: "8%",
-        iron: "1%"
-      },
-      {
-        value: false,
-        name: "Eclair",
-        calories: 262,
-        fat: 16.0,
-        carbs: 23,
-        protein: 6.0,
-        sodium: 337,
-        calcium: "6%",
-        iron: "7%"
-      },
-      {
-        value: false,
-        name: "Cupcake",
-        calories: 305,
-        fat: 3.7,
-        carbs: 67,
-        protein: 4.3,
-        sodium: 413,
-        calcium: "3%",
-        iron: "8%"
+        nombre: "Maximiliano Toloza",
+        edad: "40 Años",
+        area: "Adulto,niños",
+        valor: "$25.000",
+        imagen:
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ40o7KUWJt1pUoFDL7VmOrTKrdTCkP0DnJpS703-CGsoDmgIvL"
       }
     ]
   })

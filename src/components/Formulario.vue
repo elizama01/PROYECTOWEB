@@ -1,5 +1,5 @@
 <template>
- <form align-center>
+  <form align-center>
     <v-text-field
       v-validate="'required|max:10'"
       v-model="Rut"
@@ -18,7 +18,7 @@
       data-vv-name="name"
       required
     ></v-text-field>
-        <v-text-field
+    <v-text-field
       v-validate="'required|max:10'"
       v-model="apellido"
       :counter="10"
@@ -27,7 +27,7 @@
       data-vv-name="apellido"
       required
     ></v-text-field>
-   <router-view name="VistaCumpleaños"></router-view>
+    <router-view name="VistaCumpleaños"></router-view>
     <v-text-field
       v-validate="'required|email'"
       v-model="email"
@@ -54,21 +54,34 @@
       data-vv-name="sexo"
       required
     ></v-select>
-    <v-checkbox
-      v-validate="'required'"
-      v-model="checkbox"
-      :error-messages="errors.collect('checkbox')"
-      value="1"
-      label="Option"
-      data-vv-name="checkbox"
-      type="checkbox"
+    <v-text-field
+      v-validate="'required|max:10'"
+      v-model="ciudad"
+      :counter="10"
+      :error-messages="errors.collect('ciudad')"
+      label="Ciudad"
+      data-vv-name="ciudad"
       required
-    ></v-checkbox>
- <v-btn @click="submit">submit</v-btn>
-
-    <v-btn @click="clear">clear</v-btn>
+    ></v-text-field>
+    <v-text-field
+      v-validate="'required|max:10'"
+      v-model="comuna"
+      :counter="10"
+      :error-messages="errors.collect('comuna')"
+      label="Comuna"
+      data-vv-name="comuna"
+      required
+    ></v-text-field>
+    <v-text-field
+      v-validate="'required|max:10'"
+      v-model="direccion"
+      :counter="10"
+      :error-messages="errors.collect('direccion')"
+      label="Direccion"
+      data-vv-name="direccion"
+      required
+    ></v-text-field>
   </form>
-  
 </template>
 
 <script>
@@ -79,9 +92,15 @@ export default {
   $_veeValidate: {
     validator: "new"
   },
+  props: {},
+
   data: () => ({
+    props: [],
     name: "",
     email: "",
+    ciudad: "",
+    comuna: "",
+    direccion: "",
     sexo: null,
     items: ["Masculino ", "Femenino"],
     checkbox: null,
@@ -112,8 +131,10 @@ export default {
     clear() {
       this.name = "";
       this.email = "";
+      this.ciudad = "";
+      this.comuna = "";
+      this.direccion = "";
       this.select = null;
-      this.checkbox = null;
       this.$validator.reset();
     }
   }

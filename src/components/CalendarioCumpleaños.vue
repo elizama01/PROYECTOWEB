@@ -13,7 +13,7 @@
     <v-text-field
       slot="activator"
       v-model="date"
-      label="Birthday date"
+      label="Fecha de Nacimiento"
       prepend-icon="event"
       readonly
     ></v-text-field>

@@ -22,6 +22,18 @@
             </v-list-tile-content>
           </v-list-tile>
         </router-link>
+
+        <router-link to="/Profesionales">
+          <v-list-tile @click>
+            <v-list-tile-action>
+              <v-icon>contact_mail</v-icon>
+            </v-list-tile-action>
+            <v-list-tile-content>
+              <v-list-tile-title>Nuestros Profesionales</v-list-tile-title>
+            </v-list-tile-content>
+          </v-list-tile>
+        </router-link>
+
         <router-link to="/AgendarConsulta">
           <v-list-tile @click>
             <v-list-tile-action>
@@ -41,6 +53,7 @@
     <v-content>
       <router-view name="Principal"></router-view>
     </v-content>
+
     <v-footer color="indigo" app>
       <span class="white--text">&copy; 2017</span>
     </v-footer>
@@ -58,4 +71,3 @@ export default {
   }
 };
 </script>
-

@@ -1,7 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWordl from './components/HelloWorld.vue'
-import DataTable from './components/DataTable.vue'
 import Formulario from './components/Formulario.vue'
 import Calendario from './components/Calendario.vue'
 import AgendarConsulta from './views/AgendarConsulta.vue'
@@ -11,6 +9,7 @@ import SeleccionProfesional from './components/SeleccionProfesional.vue'
 import BusquedaDisponibilidad from './components/BusquedaDisponibilidad.vue'
 import ConfirmacionAgendar from './components/ConfirmacionAgendar.vue'
 import SobreNosotros from './views/SobreNosotros.vue'
+import Profesionales from './views/Profesionales.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -20,7 +19,7 @@ export default new Router({
             path: '/',
             name: 'Home',
             components: {
-                Principal: HelloWordl
+                Principal: SobreNosotros
             }
         }, {
             path: '/SobreNosotros',
@@ -61,6 +60,13 @@ export default new Router({
                     }, ]
                 }, ]
             }, ]
+        }, {
+            path: '/Profesionales',
+            name: 'Profesionales',
+            components: {
+
+                Principal: Profesionales
+            }
         }
 
     ]

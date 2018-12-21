@@ -90,7 +90,7 @@
         <v-btn flat>Cancel</v-btn>
       </v-stepper-content>
     </v-stepper-items>
-     <v-stepper-header>
+    <v-stepper-header>
       <v-stepper-step :complete="e1 > 1" step="1">Identificacion</v-stepper-step>
 
       <v-divider></v-divider>
@@ -111,7 +111,29 @@
 export default {
   data() {
     return {
-      e1: 0
+      e1: 0,
+      consulta: {
+        rut: "",
+        nombre: "",
+        apellido: "",
+        nacimient0: "",
+        email: "",
+        telefono: "",
+        sexo: "",
+        ciudad: "",
+        comuna: "",
+        direccion: "",
+        profesional: {
+          id: ``,
+          nombre: "",
+          edad: "",
+          area: "",
+          valor: ""
+        },
+        diaconsulta: {
+          fechas: []
+        }
+      }
     };
   }
 };
