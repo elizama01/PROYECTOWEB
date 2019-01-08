@@ -1,41 +1,52 @@
 <template>
-<v-layout>
-    <v-flex xs12 sm10 offset-sm0>
-        <v-card>
-            <v-img src="https://cdn.vuetifyjs.com/images/cards/desert.jpg" aspect-ratio="2.75"></v-img>
+<v-container fluid grid-list-md>
+    <!--llamada de iterador de datos  -->
+    <v-data-iterator :items="items" :rows-per-page-items="rowsPerPageItems" :pagination.sync="pagination" content-tag="v-layout" hide-actions row wrap>
+        <!-- muestra imagen y nombre de profesional -->
+        <v-flex xs12 sm10 offset-sm0  slot="item" slot-scope="props">
+           <v-card >
+            <v-img :src="props.item.imagen" aspect-ratio="2.75"></v-img>
 
-            <v-card-title primary-title>
+            <v-card-title  primary-title>
                 <div>
-                    <h3 class="headline mb-0">Maximiliano</h3>
-                    <v-chip color="primary" text-color="white">Ansiedad</v-chip>
-                    <v-chip color="primary" text-color="white">Depresion</v-chip>
-                    <v-chip color="primary" text-color="white">transtorno</v-chip>
-                    <v-chip color="primary" text-color="white">Stress</v-chip>
+                    <h3 class="headline mb-0">{{props.item.nombre}}</h3>
+                    <v-chip color="primary" text-color="white">{{props.item.area}}</v-chip>
+                   
 
                     <div>
-                        La terapia sistémica se enfoca en ampliar la realidad en cuanto al dominio
-                        emocional del individuo, mediante un dialogo amable y empático. Enfatizando
-                        que la realidad no es única y que va a depender desde donde el se sitúe.
-                        El contexto es primordial, ya que mediante este, el individuo le podrá dar una solución al problema manifestado. Por lo cual el terapeuta debe poner énfasis en este aspecto.
-                        Otro punto importante es brindar un acompañamiento durante todo el proceso que permita el cambio de estructura mediante nuevas pautas y conteniendo los niveles de angustia que esto pueda generar, dejando atrás la disfuncionalidad.
-                    </div>
+                        {{props.item.info}}
+                         </div>
                 </div>
             </v-card-title>
 
-            <v-card-actions>funcionalidad que tendra
-                <v-btn flat color="orange">Share</v-btn>
-                <v-btn flat color="orange"></v-btn>
+            <v-card-actions>
+                <router-link to="/AgendarConsulta"> <v-btn flat color="orange">Agendar Hora</v-btn>
+               </router-link>
+               
             </v-card-actions>
         </v-card>
-    </v-flex>
-</v-layout>
+        </v-flex>
+    </v-data-iterator>
+</v-container>
+
 </template>
 
 <script>
 export default {
-    data() {
-        return {};
-    }
+  data: () => ({
+        rowsPerPageItems: [4, 8, 12],
+        pagination: {
+            rowsPerPage: 4
+        },
+        //items de profesional
+     items:[{
+imagen:"https://cdn.vuetifyjs.com/images/cards/desert.jpg",
+nombre:"Maximiliano",
+info:"ESTA ES LA INFOMACION DE PROFESIONAL",
+area:"Ansiedad"
+   }],
+    })
+    
 };
 </script>
 

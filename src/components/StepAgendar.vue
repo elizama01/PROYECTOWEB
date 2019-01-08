@@ -31,9 +31,8 @@
                 </v-flex>
             </v-flex>
             <!-- Llamado a al componente con routerlink -->
-            <router-view name="VistaIdentificacion"></router-view>
 
-            <v-btn color="primary" @click="e1 = 2">Continue</v-btn>
+            <router-view name="VistaIdentificacion" v-on:submit="updatee1($event)" v-on:confirmarDatos="updatedatos($event)" v-bind:cliente="cliente" v-bind:e1="e1"></router-view>
 
             <v-btn flat>Cancel</v-btn>
         </v-stepper-content>
@@ -50,9 +49,9 @@
                     </v-card>
                 </v-flex>
             </v-flex>
-            <router-view name="VistaSeleccionProfesional"></router-view>
+            <router-view name="VistaSeleccionProfesional" v-bind:profesional="profesional" v-on:nuevoprofesional="updateprofesional($event)" v-bind:e1="e1" v-on:submit="updatee1($event)"></router-view>
             <v-btn @click="e1 = 1">Atras</v-btn>
-            <v-btn color="primary" @click="e1 = 3">Continue</v-btn>
+
             <v-btn flat>Cancel</v-btn>
         </v-stepper-content>
         <!-- Cada item y su contenido  -->
@@ -101,8 +100,6 @@
 
         <v-divider></v-divider>
 
-        <v-stepper-step :complete="e1 > 2" step="2">Seleccion de Profesional</v-stepper-step>
-
         <v-divider></v-divider>
 
         <v-stepper-step :complete="e1 > 3" step="3">Busqueda de disponibilidad</v-stepper-step>
@@ -115,34 +112,47 @@
 
 <script>
 export default {
-    //Datos del padre y de cada consulta para props
-
+    // Datos del padre y de cada consulta para props
     data() {
         return {
             e1: 0,
-            consulta: {
-                rut: "",
-                nombre: "",
-                apellido: "",
-                nacimient0: "",
-                email: "",
-                telefono: "",
-                sexo: "",
-                ciudad: "",
-                comuna: "",
-                direccion: "",
-                profesional: {
-                    id: ``,
-                    nombre: "",
-                    edad: "",
-                    area: "",
-                    valor: ""
-                },
-                diaconsulta: {
-                    fechas: []
-                }
+            cliente: {
+                Rut: '',
+                name: '',
+                apellido: '',
+                nacimiento: null,
+                email: '',
+                ciudad: '',
+                comuna: '',
+                direccion: '',
+                sexo: null
+            },
+            profesional: {
+                id:'',
+                nombre: '',
+                edad: '',
+                area: '',
+                valor: '',
+                imagen: ''
+
+            },fechas:{
+                dias:[]
             }
+
+
         };
+    },
+    methods: {
+        updatee1: function (updatee1) {
+            this.e1 = updatee1;
+        },
+        updatedatos: function (newdatos) {
+            this.cliente = newdatos;
+        },
+        updateprofesional:function(newdatos){
+this.profesional=newdatos;
+        }
+
     }
 };
 </script>

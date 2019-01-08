@@ -8,7 +8,13 @@
 
 <script>
 export default {
-    data: () => ({
+   props:{
+       nacimiento:{
+           type:Object,
+           required:true
+       }
+   },
+   data: () => ({
         date: null,
         menu: false
     }),
@@ -20,7 +26,9 @@ export default {
     methods: {
         save(date) {
             this.$refs.menu.save(date);
+        this.$emit('save',this.date);
         }
+        
     }
 };
 </script>

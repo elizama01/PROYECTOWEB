@@ -16,58 +16,73 @@ export default new Router({
     mode: 'history',
     base: process.env.BASE_URL,
     routes: [{
-            path: '/',
-            name: 'Home',
-            components: {
-                Principal: SobreNosotros
-            }
-        }, {
-            path: '/SobreNosotros',
-            name: 'SobreNosotros',
-            components: {
+        path: '/',
+        name: 'Home',
+        components: {
+            Principal: SobreNosotros
+        }
+    }, {
+        path: '/SobreNosotros',
+        name: 'SobreNosotros',
+        components: {
 
-                Principal: SobreNosotros
-            }
-        },
+            Principal: SobreNosotros
+        }
+    },
+    {
+        path: '/AgendarConsulta',
+        name: 'AgendarConsulta',
+        components: {
+
+            Principal: AgendarConsulta
+        }, props:
         {
-            path: '/AgendarConsulta',
-            name: 'AgendarConsulta',
+            Principal: true
+        },
+        children: [{
+            path: '',
             components: {
-
-                Principal: AgendarConsulta
+                VistaStep: StepAgendar,
+            }, props: {
+                VistaStep: true
             },
             children: [{
                 path: '',
                 components: {
-                    VistaStep: StepAgendar,
+                    VistaIdentificacion: Formulario,
+                    VistaSeleccionProfesional: SeleccionProfesional,
+                    VistaBusquedaDisponibilidad: BusquedaDisponibilidad,
+                    VistaConfirmacionConsulta: ConfirmacionAgendar
+
+                },
+                props: {
+                    VistaIdentificacion: true,
+                    VistaSeleccionProfesional: true,
+                    VistaBusquedaDisponibilidad: true,
+                    VistaConfirmacionConsulta: true
                 },
                 children: [{
                     path: '',
                     components: {
-                        VistaIdentificacion: Formulario,
-                        VistaSeleccionProfesional: SeleccionProfesional,
-                        VistaBusquedaDisponibilidad: BusquedaDisponibilidad,
-                        VistaConfirmacionConsulta: ConfirmacionAgendar
+                        VistaCumpleaños: InCumpleaños,
+                        VistaCalendarioDisponibilidad: Calendario
 
                     },
-                    children: [{
-                        path: '',
-                        components: {
-                            VistaCumpleaños: InCumpleaños,
-                            VistaCalendarioDisponibilidad: Calendario
+                    props: {
+                        VistaCumpleaños: true,
+                        VistaCalendarioDisponibilidad: true
+                    },
+                },]
+            },]
+        },]
+    }, {
+        path: '/Profesionales',
+        name: 'Profesionales',
+        components: {
 
-                        }
-                    }, ]
-                }, ]
-            }, ]
-        }, {
-            path: '/Profesionales',
-            name: 'Profesionales',
-            components: {
-
-                Principal: Profesionales
-            }
-        }
+            Principal: Profesionales
+        }, props: { Principal: true }
+    }
 
     ]
 })

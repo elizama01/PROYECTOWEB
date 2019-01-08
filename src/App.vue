@@ -48,7 +48,7 @@
     </v-navigation-drawer>
     <v-toolbar color="indigo" dark fixed app>
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-      <v-toolbar-title>ADMPsq</v-toolbar-title>
+      <v-toolbar-title>NOMBRE DE LA CLINICA</v-toolbar-title>
     </v-toolbar>
     <v-content>
       <router-view name="Principal"></router-view>
