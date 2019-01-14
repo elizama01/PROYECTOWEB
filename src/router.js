@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import Home from './views/Home.vue'
 import Formulario from './components/Formulario.vue'
 import Calendario from './components/Calendario.vue'
 import AgendarConsulta from './views/AgendarConsulta.vue'
@@ -19,7 +20,7 @@ export default new Router({
         path: '/',
         name: 'Home',
         components: {
-            Principal: SobreNosotros
+            Principal: Home
         }
     }, {
         path: '/SobreNosotros',

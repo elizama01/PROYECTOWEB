@@ -20,7 +20,7 @@
     <v-text-field v-validate="'required|max:10'" v-model="comuna" :counter="10" :error-messages="errors.collect('comuna')" label="Comuna" data-vv-name="comuna" required></v-text-field>
     <!-- Input direccion -->
     <v-text-field v-validate="'required|max:10'" v-model="direccion" :counter="10" :error-messages="errors.collect('direccion')" label="Direccion" data-vv-name="direccion" required></v-text-field>
-    <v-alert  :value="controlalert" type="error">
+    <v-alert :value="controlalert" type="error">
         No a seleccionado Fecha de nacimiento u otro campo
     </v-alert>
     <v-btn color="primary" v-on:click="submit()">Seleccionar Profesional</v-btn>
@@ -54,7 +54,7 @@ export default {
     },
     //Datos paciente
     data: () => ({
-        controlalert:false,
+        controlalert: false,
         Rut: '',
         name: '',
         apellido: '',
@@ -93,12 +93,12 @@ export default {
             // this.$emit('submit', 1);
 
             this.$validator.validateAll();
-            if( this.nacimiento == null){
-this.controlalert=true;
-            }else
+            if (this.nacimiento == null) {
+                this.controlalert = true;
+            } else
             if (!this.errors.any() & this.nacimiento != null) {
-               this.controlalert=false;
-               this.cliente.Rut = '' + this.Rut;
+                this.controlalert = false;
+                this.cliente.Rut = '' + this.Rut;
                 this.cliente.name = '' + this.name;
                 this.cliente.apellido = '' + this.apellido;
                 this.cliente.nacimiento = '' + this.nacimiento;

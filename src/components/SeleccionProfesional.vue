@@ -14,7 +14,7 @@
                     <v-card-title class="subheading font-weight-bold">
                         {{ props.item.nombre }}
                         <v-flex xs2 sm8 text-xs-center>
-                            <v-btn color="primary" dark v-on:click="seleccion(props.item.id)">Escoger
+                            <v-btn color="primary" dark v-on:click="submit(props.item.id)">Escoger
                                 <v-icon dark right>check_circle</v-icon>
                             </v-btn>
                         </v-flex>
@@ -88,7 +88,7 @@ export default {
         ]
     }),
     methods: {
-        seleccion(id) {
+        submit(id) {
             for (let index = 0; index < this.items.length; index++) {
                 if (this.items[index].id == id) {
                     this.profesional.id = this.items[index].id;
@@ -98,8 +98,8 @@ export default {
                     this.profesional.valor = this.items[index].valor;
                     this.profesional.imagen = this.items[index].imagen;
                     this.$emit('nuevoprofesional', this.profesional);
-                    this.e1 = 3;
-                    this.$emit('updatee1', this.e1)
+                    
+                    this.$emit('submit',3)
                 }
 
             }
